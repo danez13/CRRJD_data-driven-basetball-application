@@ -115,9 +115,12 @@ Distribute text elements in the form of title, header, subheader, caption or pre
 ## Grading Criteria
 Your project will be graded based on the following criteria:
 
-Relevance and clarity of the chosen topic.
-Successful integration of APIs and data visualization.
-Inclusion and effective use of interactive widgets.
-Adherence to HCI design principles.
-Quality of testing and responsiveness to user feedback.
-Thoroughness
+1. Relevance and clarity of the chosen topic.
+2. Successful integration of APIs and data visualization.
+3. Inclusion and effective use of interactive widgets.
+4. Adherence to HCI design principles.
+5.Quality of testing and responsiveness to user feedback.
+6.Thoroughness
+
+| Criteria | Exemplary (10) | Proficient (8) | Adequate (6) | Insufficient (4) |
+|----------|----------------|----------------|--------------|------------------|
