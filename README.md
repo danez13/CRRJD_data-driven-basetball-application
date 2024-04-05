@@ -101,16 +101,16 @@ The biggest HCI challenges will be the selection of appropriate layouts and cont
 1. Choose a topic of interest to you (examples: sports, geology, music, cryptocurrency, farming, etc.)
 2. Search for free and public datasets or free public APIs where you can request data to be manipulated and visualized in your web application
 3. Start developing your web application:
-  1. Download and install Python programming language version 3
-  2. Download and Install PyCharm IDE Professional version by applying for a student license using your FIU email
-  3. Create a new Python project in PyCharm IDE and:
-  4. Install the necessary packages: pip install streamlit numpy pandas
-  5. Import the above packages:
-  ```
-     import streamlit as st
-     import pandas as pd
-     import numpy as np
-  ```
+    1. Download and install Python programming language version 3
+    2. Download and Install PyCharm IDE Professional version by applying for a student license using your FIU email
+    3. Create a new Python project in PyCharm IDE and:
+    4. Install the necessary packages: pip install streamlit numpy pandas
+    5. Import the above packages:
+    ```
+       import streamlit as st
+       import pandas as pd
+       import numpy as np
+    ```
 Include the components listed in **REQUIREMENTS** according to the goal of your web application and to the type of data being manipulated.
 Distribute text elements in the form of title, header, subheader, caption or pre-formatted text across the web application so that the content of your web app engages readers and drives them to taken the necessary actions to fulfill your apps’s goals. Avoid dull, lifeless, and overlong prose. Try keeping text short and intriguing. This will encourage users to click through to other elements. Group content into cohesive categories by breaking it up into short paragraphs enriched with visual elements. This can help you make your web app have a light and engaging feel.
 
@@ -136,5 +136,5 @@ Identification of target users | Users clearly identified and web app clearly ca
 | Streamlit properly used | All elements of Streamlit listed in the requirements were used | Not all elements of Streamlit listed in the requirements were used | Just some elements of Streamlit listed in the requirements were used | Just a few elements of Streamlit listed in the requirements were used | 10 pts |
 | Submission | On time | 1 day late | 2 days late | 4 days late | 10 pts |
 | Presentation | Web application was presented well with HCI elements clearly identified and correctly used | Web application was presented well, but HCI elements were not clearly identified or correctly used | Presentation lacked organization, identification of HCI elements, and did not meet the requirements | No presentation of the web application | 10 pts|
-|  | | | | | **Total Points:** 100 |
+|---|---|---|---|---|**Total Points:** 100 |
 
