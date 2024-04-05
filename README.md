@@ -124,7 +124,7 @@ Your project will be graded based on the following criteria:
 
 | Criteria | Exemplary (10) | Proficient (8) | Adequate (6) | Insufficient (4) | pts |
 |----------|----------------|----------------|--------------|------------------|-----|
-Identification of target users | Users clearly identified and web app clearly caters for themUsers partially identified, but web app caters for this group | Users identified but web application does not necessarily cater for them | No users identified or mentioned in the project submission | 10 pts |
+Identification of target users | Users clearly identified and web app clearly caters for them | Users partially identified, but web app caters for this group | Users identified but web application does not necessarily cater for them | No users identified or mentioned in the project submission | 10 pts |
 
 10 pts
 This criterion is linked to a Learning OutcomeGoal Identification
