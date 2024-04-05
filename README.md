@@ -90,24 +90,26 @@ The web application needs to be developed using Python programming languages ver
 
 The biggest HCI challenges will be the selection of appropriate layouts and containers. For example, you will need to study your target audience and the data being manipulated to decide, for example, whether to have 3 columns or 1 single column, or even whether an input data should be entered as a radio button or a text field, or whether to display a certain data output as a line chart or a map. For each project, you should think about the following structured design process:
 
-**User Research:** Identify and interview potential users to gather requirements.
-**Prototyping:** Create low-fidelity prototypes (e.g., wireframes) before coding.
-Usability Testing: Conduct usability tests with real users, iterating on design based on feedback.
-Accessibility: Ensure apps are designed with accessibility in mind, using guidelines such as the Web Content Accessibility Guidelines (WCAG)Links to an external site..
-Reflection: Write a reflection on the design process, user feedback, and iterations.
-Initial Steps
-Choose a topic of interest to you (examples: sports, geology, music, cryptocurrency, farming, etc.)
-Search for free and public datasets or free public APIs where you can request data to be manipulated and visualized in your web application
-Start developing your web application:
-Download and install Python programming language version 3
-Download and Install PyCharm IDE Professional version by applying for a student license using your FIU email
-Create a new Python project in PyCharm IDE and:
-Install the necessary packages: pip install streamlit numpy pandas
-Import the above packages:
-import streamlit as st
-import pandas as pd
-import numpy as np
-Include the components listed in REQUIREMENTS according to the goal of your web application and to the type of data being manipulated.
+- **User Research:** Identify and interview potential users to gather requirements.
+- **Prototyping:** Create low-fidelity prototypes (e.g., wireframes) before coding.
+- Usability Testing: Conduct usability tests with real users, iterating on design based on feedback.
+- Accessibility: Ensure apps are designed with accessibility in mind, using guidelines such as the Web Content Accessibility Guidelines (WCAG)Links to an external site..
+- Reflection: Write a reflection on the design process, user feedback, and iterations.
+
+### Initial Steps
+- Choose a topic of interest to you (examples: sports, geology, music, cryptocurrency, farming, etc.)
+- Search for free and public datasets or free public APIs where you can request data to be manipulated and visualized in your web application
+- Start developing your web application:
+  1. Download and install Python programming language version 3
+  2. Download and Install PyCharm IDE Professional version by applying for a student license using your FIU email
+  3. Create a new Python project in PyCharm IDE and:
+  4. Install the necessary packages: pip install streamlit numpy pandas
+  5. Import the above packages:
+      1. import streamlit as st
+      2. import pandas as pd
+      3. import numpy as np
+
+Include the components listed in **REQUIREMENTS** according to the goal of your web application and to the type of data being manipulated.
 Distribute text elements in the form of title, header, subheader, caption or pre-formatted text across the web application so that the content of your web app engages readers and drives them to taken the necessary actions to fulfill your apps’s goals. Avoid dull, lifeless, and overlong prose. Try keeping text short and intriguing. This will encourage users to click through to other elements. Group content into cohesive categories by breaking it up into short paragraphs enriched with visual elements. This can help you make your web app have a light and engaging feel.
 
 ## Grading Criteria
