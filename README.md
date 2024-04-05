@@ -2,30 +2,36 @@
 ## Introduction and Motivation
 A web application is an interactive computer program developed using web technologies (HTML, CSS, JS), which stores (Database, Files) and manipulates data (CRUD - create, read, update and delete). Webapps can be used by a team or single user to perform tasks over the internet.
 
-Objective: In this assignment, you will develop a web application using the Streamlit framework that focuses on usability goals and adheres to human-computer interaction (HCI) design principles. You will use Streamlit features and API requests to fetch and display data in various forms, such as charts, plots, maps, and tables. Your web app must include interactive widgets, such as buttons, select boxes, radio buttons, text input, color input, and other features that help achieve the HCI guidelines. Your project needs to manipulate data requested through an API. The format of the documents received can be of any type, but I highly recommend JSON, XML, or CSV.
+## Objective: 
+In this assignment, you will develop a web application using the Streamlit framework that focuses on usability goals and adheres to human-computer interaction (HCI) design principles. You will use Streamlit features and API requests to fetch and display data in various forms, such as charts, plots, maps, and tables. Your web app must include interactive widgets, such as buttons, select boxes, radio buttons, text input, color input, and other features that help achieve the HCI guidelines. Your project needs to manipulate data requested through an API. The format of the documents received can be of any type, but I highly recommend JSON, XML, or CSV.
 
-Assignment Details
+## Assignment Details
 Select a theme or topic for your web application: Choose a topic that interests you and has public APIs available for data retrieval. Examples include weather forecasting, stock market analysis, social media trends, or public transportation information.
 
-Research and identify relevant APIs: Find one or more APIs that provide data relevant to your chosen topic. Ensure the APIs are publicly accessible and have clear documentation.
+### Research and identify relevant APIs: 
+Find one or more APIs that provide data relevant to your chosen topic. Ensure the APIs are publicly accessible and have clear documentation.
 
 Here is a list of possible APIs that might be of interest to you:
+- https://github.com/public-apis/public-apis
+- https://rapidapi.com/collection/list-of-free-apis
 
-https://github.com/public-apis/public-apis
-https://rapidapi.com/collection/list-of-free-apis
-Define usability goals: Based on your selected topic, define a set of usability goals for your web app. These may include effectiveness, efficiency, learnability, memorability, error prevention, and user satisfaction.
+### Define usability goals: 
+Based on your selected topic, define a set of usability goals for your web app. These may include effectiveness, efficiency, learnability, memorability, error prevention, and user satisfaction.
 
-Design the web application: Sketch out a rough layout of your application, identifying the key components and user interactions. Consider the placement of widgets, navigation elements, and data visualizations.
+### Design the web application: 
+Sketch out a rough layout of your application, identifying the key components and user interactions. Consider the placement of widgets, navigation elements, and data visualizations.
 
-Develop the web app using Streamlit: Implement your design using Streamlit, incorporating the following features:
+### Develop the web app using Streamlit: 
+Implement your design using Streamlit, incorporating the following features:
 
-API requests: Fetch data from the selected APIs
-At least 1 interactive table (https://docs.streamlit.io/library/api-reference/data/st.dataframeLinks to an external site.)
-At least 2 chart elements,  such as line, area or bar charts (matplotlib is allowed). To display:
-a line chart - https://docs.streamlit.io/library/api-reference/charts/st.line_chartLinks to an external site.
-an area chart - https://docs.streamlit.io/library/api-reference/charts/st.area_chartLinks to an external site.
-a bar chart - https://docs.streamlit.io/library/api-reference/charts/st.bar_chartLinks to an external site.
-At least 1 map with points marked on it (a simple map can be created using https://docs.streamlit.io/library/api-reference/charts/st.mapLinks to an external site. or a more complex 3d map at https://docs.streamlit.io/library/api-reference/charts/st.pydeck_chartLinks to an external site.)
+### API requests: 
+- Fetch data from the selected APIs
+- At least 1 interactive table (https://docs.streamlit.io/library/api-reference/data/st.dataframeLinks to an external site.)
+- At least 2 chart elements,  such as line, area or bar charts (matplotlib is allowed). To display:
+  - a line chart - https://docs.streamlit.io/library/api-reference/charts/st.line_chartLinks to an external site.
+  - an area chart - https://docs.streamlit.io/library/api-reference/charts/st.area_chartLinks to an external site.
+  - a bar chart - https://docs.streamlit.io/library/api-reference/charts/st.bar_chartLinks to an external site.
+- At least 1 map with points marked on it (a simple map can be created using https://docs.streamlit.io/library/api-reference/charts/st.mapLinks to an external site. or a more complex 3d map at https://docs.streamlit.io/library/api-reference/charts/st.pydeck_chartLinks to an external site.)
 At least 1 button widget (https://docs.streamlit.io/library/api-reference/widgets/st.button)
 At least 1 checkbox widget (https://docs.streamlit.io/library/api-reference/widgets/st.checkbox)
 At least 2 of the essential feedback and messages boxes to the users:
