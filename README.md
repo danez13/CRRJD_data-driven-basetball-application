@@ -28,7 +28,7 @@ Implement your design using Streamlit, incorporating the following features:
 - Fetch data from the selected APIs
 - At least 1 interactive table (https://docs.streamlit.io/library/api-reference/data/st.dataframeLinks to an external site.)
 - At least 2 chart elements,  such as line, area or bar charts (matplotlib is allowed). To display:
-  - **__a line chart__** - https://docs.streamlit.io/library/api-reference/charts/st.line_chartLinks to an external site.
+  - **a line chart** - https://docs.streamlit.io/library/api-reference/charts/st.line_chartLinks to an external site.
   - **an area chart** - https://docs.streamlit.io/library/api-reference/charts/st.area_chartLinks to an external site.
   - **a bar chart** - https://docs.streamlit.io/library/api-reference/charts/st.bar_chartLinks to an external site.
 - At least 1 map with points marked on it (a simple map can be created using https://docs.streamlit.io/library/api-reference/charts/st.mapLinks to an external site. or a  more complex 3d map at https://docs.streamlit.io/library/api-reference/charts/st.pydeck_chartLinks to an external site.)
