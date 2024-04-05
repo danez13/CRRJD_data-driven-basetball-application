@@ -73,7 +73,7 @@ Conduct usability testing with a small group of users to identify any issues or 
 
 ## Document your work: 
 Prepare a report that includes the following sections:
-1. Introduction: Introduce your web app and its purpose.
+1. **Introduction:** Introduce your web app and its purpose.
 2. Usability goals: Describe the usability goals you set for your web app and explain how you addressed each goal.
 3. Design process: Discuss your design process, from sketching to implementation.
 4. API integration: Explain how you utilized the APIs and discuss any challenges or limitations encountered.
