@@ -98,9 +98,9 @@ The biggest HCI challenges will be the selection of appropriate layouts and cont
 - Reflection: Write a reflection on the design process, user feedback, and iterations.
 
 ### Initial Steps
-- Choose a topic of interest to you (examples: sports, geology, music, cryptocurrency, farming, etc.)
-- Search for free and public datasets or free public APIs where you can request data to be manipulated and visualized in your web application
-- Start developing your web application:
+1. Choose a topic of interest to you (examples: sports, geology, music, cryptocurrency, farming, etc.)
+2. Search for free and public datasets or free public APIs where you can request data to be manipulated and visualized in your web application
+3. Start developing your web application:
   1. Download and install Python programming language version 3
   2. Download and Install PyCharm IDE Professional version by applying for a student license using your FIU email
   3. Create a new Python project in PyCharm IDE and:
