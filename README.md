@@ -122,5 +122,136 @@ Your project will be graded based on the following criteria:
 5.Quality of testing and responsiveness to user feedback.
 6.Thoroughness
 
-| Criteria | Exemplary (10) | Proficient (8) | Adequate (6) | Insufficient (4) |
-|----------|----------------|----------------|--------------|------------------|
+| Criteria | Exemplary (10) | Proficient (8) | Adequate (6) | Insufficient (4) | pts |
+|----------|----------------|----------------|--------------|------------------|-----|
+Identification of target users | Users clearly identified and web app clearly caters for themUsers partially identified, but web app caters for this group | Users identified but web application does not necessarily cater for them | No users identified or mentioned in the project submission | 10 pts |
+
+10 pts
+This criterion is linked to a Learning OutcomeGoal Identification
+10 pts
+Full Marks
+The web app's purpose is readily apparent to the user.
+8 pts
+Proficient
+The web app has a firm purpose, but may occasionally digress from the purpose
+6 pts
+Adequate
+The purpose is not always clear
+4 pts
+Insufficient
+The purpose is generally unclear
+10 pts
+This criterion is linked to a Learning OutcomeLink between the goal Identification and the target audience
+10 pts
+Full Marks
+The problem poses a novel perspective or a major opportunity for innovation
+8 pts
+Proficient
+Web app provides firm support for the goal identification and displays evidence of a basic analysis of a sufficiently limited topic. User gains some insights
+6 pts
+Adequate
+The problem is somewhat clear but solution feels like a hammer trying to find a nail
+4 pts
+Insufficient
+The problem is unclear, unimportant or not well-motivated.
+10 pts
+This criterion is linked to a Learning OutcomeDataset properly identified
+10 pts
+Full Marks
+Dataset clearly identified and used either through pre-selected XML, CSV or JSON files or through API requests
+8 pts
+Proficient
+Dataset is identified and used either through pre-selected XML, CSV or JSON files or through API requests, but insufficient for the goal of the application
+6 pts
+Adequate
+Dataset not properly used for the web app’s goal
+4 pts
+Insufficient
+No dataset identified
+10 pts
+This criterion is linked to a Learning OutcomeDataset properly manipulated
+10 pts
+Full Marks
+Data was correctly manipulated from the requested documents using the API
+8 pts
+Proficient
+Data was correctly manipulated from the requested documents using the API; however, it did not match with the goal identified for this web app
+6 pts
+Adequate
+The data was not properly managed from the JSON, CSV, or XML files.
+4 pts
+Insufficient
+No dataset identified
+10 pts
+This criterion is linked to a Learning OutcomeExecution
+10 pts
+Full Marks
+The web app is ready to be deployed and used
+8 pts
+Proficient
+All relevant aspects of the project have been completed, but they have minor flaws
+6 pts
+Adequate
+The basic elements of the research are complete, but either they are flawed or important aspects are still missing
+4 pts
+Insufficient
+The project has some complete components, but critical aspects are incomplete
+10 pts
+This criterion is linked to a Learning OutcomeOrganization
+10 pts
+Full Marks
+The ideas are arranged logically to support the web app’s goal. They flow smoothly from one to another and are clearly linked to each other. User can follow line of reasoning.
+8 pts
+Proficient
+The ideas are arranged logically to support the web app’s goal. They are usually clearly linked to each other. For the most part, user can follow line of reasoning.
+6 pts
+Adequate
+The elements of the web app are not arranged logically. Frequently, ideas fail to make sense together. User can figure out what the developer probably intends but may not be motivated to do so.
+4 pts
+Insufficient
+The elements of the web application lacks any semblance of logical organization. The user cannot identify a line of reasoning and loses interest.
+10 pts
+This criterion is linked to a Learning OutcomeStreamlit properly used
+10 pts
+Full Marks
+All elements of Streamlit listed in the requirements were used
+8 pts
+Proficient
+Not all elements of Streamlit listed in the requirements were used
+6 pts
+Adequate
+Just some elements of Streamlit listed in the requirements were used
+4 pts
+Insufficient
+Just a few elements of Streamlit listed in the requirements were used
+10 pts
+This criterion is linked to a Learning OutcomeSubmission
+10 pts
+Full Marks
+On time
+8 pts
+Proficient
+1 day late
+6 pts
+Adequate
+2 days late
+4 pts
+Insufficient
+4 days late
+10 pts
+This criterion is linked to a Learning OutcomePresentation
+10 pts
+Full Marks
+Web application was presented well with HCI elements clearly identified and correctly used
+8 pts
+Proficient
+Web application was presented well, but HCI elements were not clearly identified or correctly used
+6 pts
+Adequate
+Presentation lacked organization, identification of HCI elements, and did not meet the requirements
+4 pts
+Insufficient
+No presentation of the web application
+10 pts
+Total Points: 100
+
