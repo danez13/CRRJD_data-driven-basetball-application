@@ -63,10 +63,10 @@ Implement your design using Streamlit, incorporating the following features:
 
 ## Apply HCI design principles: 
 Ensure your web app adheres to HCI design principles, such as visibility, feedback, consistency, flexibility, and error prevention. Consider the following aspects:
-  1. **Information architecture**: Organize content and functionality to promote ease of use and understanding.
-  2. **Navigation**: Provide clear and consistent navigation options.
-  3. **User feedback**: Offer immediate and informative feedback to user actions.
-  4. **Aesthetics**: Maintain a visually appealing and professional design.
+  1. **Information architecture:** Organize content and functionality to promote ease of use and understanding.
+  2. **Navigation:** Provide clear and consistent navigation options.
+  3. **User feedback:** Offer immediate and informative feedback to user actions.
+  4. **Aesthetics:** Maintain a visually appealing and professional design.
 
 ## Test your web app: 
 Conduct usability testing with a small group of users to identify any issues or areas for improvement. Make any necessary changes based on the feedback received.
@@ -74,13 +74,13 @@ Conduct usability testing with a small group of users to identify any issues or 
 ## Document your work: 
 Prepare a report that includes the following sections:
 1. **Introduction:** Introduce your web app and its purpose.
-2. Usability goals: Describe the usability goals you set for your web app and explain how you addressed each goal.
-3. Design process: Discuss your design process, from sketching to implementation.
-4. API integration: Explain how you utilized the APIs and discuss any challenges or limitations encountered.
-5. Interactive widgets: Describe the widgets you incorporated and their purposes.
-6. HCI design principles: Discuss how your web app adheres to HCI design principles.
-7. Testing and feedback: Summarize the results of your usability testing and any changes made in response to feedback.
-8. Conclusion: Reflect on your experience and discuss potential future improvements.
+2. **Usability goals:** Describe the usability goals you set for your web app and explain how you addressed each goal.
+3. **Design process:** Discuss your design process, from sketching to implementation.
+4. **API integration:** Explain how you utilized the APIs and discuss any challenges or limitations encountered.
+5. **Interactive widgets:** Describe the widgets you incorporated and their purposes.
+6. **HCI design principles:** Discuss how your web app adheres to HCI design principles.
+7. **Testing and feedback:** Summarize the results of your usability testing and any changes made in response to feedback.
+8. **Conclusion:** Reflect on your experience and discuss potential future improvements.
 
 ## Submission: 
 Submit your web app's source code, along with your report and any supporting materials, such as sketches or user feedback.
