@@ -105,10 +105,11 @@ The biggest HCI challenges will be the selection of appropriate layouts and cont
   3. Create a new Python project in PyCharm IDE and:
   4. Install the necessary packages: pip install streamlit numpy pandas
   5. Import the above packages:
-      - import streamlit as st
-      - import pandas as pd
-      - import numpy as np
-
+  ```
+     import streamlit as st
+     import pandas as pd
+     import numpy as np
+  ```
 Include the components listed in **REQUIREMENTS** according to the goal of your web application and to the type of data being manipulated.
 Distribute text elements in the form of title, header, subheader, caption or pre-formatted text across the web application so that the content of your web app engages readers and drives them to taken the necessary actions to fulfill your apps’s goals. Avoid dull, lifeless, and overlong prose. Try keeping text short and intriguing. This will encourage users to click through to other elements. Group content into cohesive categories by breaking it up into short paragraphs enriched with visual elements. This can help you make your web app have a light and engaging feel.
 
