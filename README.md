@@ -90,8 +90,8 @@ The web application needs to be developed using Python programming languages ver
 
 The biggest HCI challenges will be the selection of appropriate layouts and containers. For example, you will need to study your target audience and the data being manipulated to decide, for example, whether to have 3 columns or 1 single column, or even whether an input data should be entered as a radio button or a text field, or whether to display a certain data output as a line chart or a map. For each project, you should think about the following structured design process:
 
-User Research: Identify and interview potential users to gather requirements.
-Prototyping: Create low-fidelity prototypes (e.g., wireframes) before coding.
+**User Research:** Identify and interview potential users to gather requirements.
+**Prototyping:** Create low-fidelity prototypes (e.g., wireframes) before coding.
 Usability Testing: Conduct usability tests with real users, iterating on design based on feedback.
 Accessibility: Ensure apps are designed with accessibility in mind, using guidelines such as the Web Content Accessibility Guidelines (WCAG)Links to an external site..
 Reflection: Write a reflection on the design process, user feedback, and iterations.
