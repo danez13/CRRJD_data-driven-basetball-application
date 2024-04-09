@@ -125,7 +125,7 @@ def player_stats():
 def player_details(player_id):
 
     df = get_api_dataframe(player_id)
-    dataframe(player_id=player_id)
+    dataframe(player_id=player_id, df=df)
 
     points, minutes, games_played = st.tabs(['Points', 'Minutes', 'Games'])
 
@@ -148,7 +148,7 @@ def player_details(player_id):
 # match() method, so that you can convert from the syntax used in the dataframe
 # provided by the api.
 
-def dataframe(player_id):
+def dataframe(player_id, df):
 
     parameters = st.multiselect(
         "Select the data you want to see.",
@@ -162,8 +162,6 @@ def dataframe(player_id):
         ]
     )   
     
-    df = get_api_dataframe(player_id=player_id)
-        
     button = st.button("Display Stats")
     if button:
         dataFrame = get_custom_dataframe(parameters=parameters, df=df)
