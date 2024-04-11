@@ -1,5 +1,10 @@
 # HCI_Proj
 **[GOOGLE DOCS](https://docs.google.com/document/d/1XwcLXEZ9ANSSibMToS6_dBphzFJvFjoHpnBYjqQWyGQ/edit?usp=sharing)**
+
+## Dependencies
+  ```
+  pip install -r requirements.txt
+  ```
 ## Introduction and Motivation
 A web application is an interactive computer program developed using web technologies (HTML, CSS, JS), which stores (Database, Files) and manipulates data (CRUD - create, read, update and delete). Webapps can be used by a team or single user to perform tasks over the internet.
 
