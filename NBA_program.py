@@ -17,6 +17,8 @@ match_team_ids = []
 days = []
 ######################################################################
 
+st.set_page_config(page_title="NBA Stats")
+
 ###################### PLAYER DETAILS ################################
 
 menu = option_menu(
