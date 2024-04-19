@@ -4,11 +4,12 @@ import nba_api.stats
 import nba_api.stats.static
 import nba_api.stats.static.teams as teams
 from streamlit_option_menu import option_menu
-from helpers import search_for_player,get_all_players
+from helpers import display_detailedPlayer, search_for_player,get_all_players
 import redi_helpers
 import streamlit as st
 import nba_api
 from nba_api.stats.static import players
+from nba_api.stats.static import teams
 from datetime import date, timedelta
 from streamlit_folium import folium_static
 import folium
@@ -27,13 +28,13 @@ menu = option_menu(
 # Start running the program from here
 if menu == "Player":
     # textSearch = st.text_input("search for player",value=None)
-    textSearch = st.multiselect("select a player:",get_all_players(),None,)
+    textSearch = st.multiselect("select a player:",get_all_players())
     filter = st.radio("filters",options=["active","all-time"],horizontal=True)
     if len(textSearch)!=0:
-        for player in textSearch:
-            search_for_player(player,filter)
+        display_detailedPlayer(textSearch)
     else:
-        search_for_player(None,filter)
+        st.empty()
+        search_for_player(filter)
 elif menu == "Matches":
     redi_helpers.todays_matchups()
 

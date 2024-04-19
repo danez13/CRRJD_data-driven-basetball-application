@@ -1,4 +1,5 @@
 from nba_api.stats.static import players
+
 from nba_api.stats.endpoints import playercareerstats, commonplayerinfo, scoreboardv2, teamdetails, leaguestandings
 from datetime import date, timedelta
 import json
@@ -36,7 +37,6 @@ def get_all_players():
     player_names = []
     for player in all_players:
         player_names.append(player['full_name'])
-
     return player_names
 
 
