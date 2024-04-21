@@ -4,11 +4,13 @@ from nba_api.stats.endpoints import playercareerstats, commonplayerinfo, scorebo
 import requests
 import json
 import redi_helpers
-import datetime
+from datetime import date, timedelta
 from array import array
 import pandas as pd
 import plotly.express as px
 from streamlit.delta_generator import DeltaGenerator
+import folium
+from streamlit_folium import folium_static
 headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:82.0) Gecko/20100101 Firefox/82.0' } 
 @st.cache_data(show_spinner=False,experimental_allow_widgets=True)
 def display_detailedPlayer(playerList:list,_container:DeltaGenerator):
@@ -45,7 +47,8 @@ def display_detailedPlayer(playerList:list,_container:DeltaGenerator):
         fig=px.histogram(x=['GP', 'GS', 'MIN', 'FGM', 'FGA', 'FG_PCT', 'FG3M', 'FG3A', 'FG3_PCT', 'FTM', 'FTA', 'FT_PCT', 'OREB', 'DREB', 'REB', 'AST', 'STL', 'BLK', 'TOV', 'PF', 'PTS'],y=newdf.values.tolist(),barmode="group")
         totalStats.plotly_chart(fig,True)
     with averageStats:
-        averageStats.write("goodbye")  
+        averageStats.write("goodbye")
+
 # get a list of all players
 @st.cache_data(show_spinner=False)
 def get_all_players():
@@ -97,3 +100,127 @@ def totalPostSeason(id):
     with open("test_file2.json", "r") as file:
         player_json = json.load(file)
     return player_json["CareerTotalsPostSeason"][0]
+
+@st.cache_data(show_spinner=False)
+def get_scoreboard(gameday):
+    score = scoreboardv2.ScoreboardV2(game_date=gameday)
+    
+    with open("scoreboard.json", "w") as file:
+        file.write(score.get_json())
+
+    with open("scoreboard.json", "r") as file:
+        score_json = json.load(file)
+
+    return score_json
+
+def get_league_teams():
+
+    league_standings = leaguestandings.LeagueStandings()
+
+    with open("league.json", "w") as file:
+        file.write(league_standings.get_json())
+
+def display_matchups(matchups, day,_container:DeltaGenerator):
+    
+    global match_team_ids
+    global index
+    global button_list
+    global days
+    # get_league_teams()
+
+    _container.subheader(f"Game Day: {day}")
+    _container.divider()
+        
+    for entry in matchups:
+        col1, col2, col3 = _container.columns([0.4,1,0.15])
+        team_1_name = get_team_name(team_id=entry[6])
+        team_2_name = get_team_name(team_id=entry[7])
+        cont=_container.container()
+        with cont:
+            with col1:
+                teamPic=f"https://cdn.nba.com/logos/nba/{entry[6]}/primary/L/logo.svg"
+                col1.image(teamPic,width=50)
+            with col2:
+                col2.text(f"{team_1_name} vs. {team_2_name}")
+            with col3:
+                teamPic=f"https://cdn.nba.com/logos/nba/{entry[7]}/primary/L/logo.svg"
+                col3.image(teamPic,width=50)
+            col4, col5, col6 = st.columns([0.65,1,0.15])
+            with col5:
+                details=col5.button("view matchup details",key=int(entry[2]))  
+            if details:
+                cont2=cont.container()
+                with cont2:
+                    team_1_details = get_team_details(team_id=entry[6])
+                    team_2_details = get_team_details(team_id=entry[7])
+                    team_1_full_name = team_1_name + " (" + team_1_details['resultSets'][0]['rowSet'][0][1] + ")"
+                    team_2_full_name = team_2_name + " (" + team_2_details['resultSets'][0]['rowSet'][0][1] + ")"
+                    cont2.subheader(team_1_full_name + " vs. " + team_2_full_name)
+                    cont2.text(f"Start Time: {entry[4]}")
+                    cont2.text(f"Stadium Name: {entry[15]}")
+                    map_creator(entry[15])
+        st.divider() 
+
+@st.cache_data(show_spinner=False)
+def get_team_details(team_id):
+    team_details = teamdetails.TeamDetails(team_id=team_id)
+
+    with open("temp.json", "w") as file:
+       file.write(team_details.get_json())
+
+    with open("temp.json", "r") as file:
+       details_json = json.load(file)
+
+    return details_json
+
+@st.cache_data(show_spinner=False)
+def map_creator(location):
+
+    lat_and_long = get_lat_and_long(location=location)
+    latitude = lat_and_long[0]
+    longitude = lat_and_long[1]
+
+    # center on the station
+    m = folium.Map(location=[latitude, longitude], zoom_start=10)
+
+    # add marker for the station
+    folium.Marker([latitude, longitude], popup="Station", tooltip="Station").add_to(m)
+
+    # call to render Folium map in Streamlit
+    folium_static(m)
+
+@st.cache_data(show_spinner=False)
+def get_lat_and_long(location: str):
+    url = "https://api.geoapify.com/v1/geocode/search?text="
+    api_key = "&apiKey=d404cec595b9452ea04c1bb1fe910f18"
+
+    location_list = location.split()
+
+    location_search = ""
+
+    for i in location_list:
+        location_search = location_search + i + "%20"
+    
+    location_search = location_search[:len(location_search)-3]
+
+    fullURL = url+location_search+api_key
+
+    request = requests.get(fullURL)
+
+    loc_json = request.json()
+
+    return [loc_json['features'][0]['properties']['lat'], loc_json['features'][0]['properties']['lon']]
+
+@st.cache_data(show_spinner=False)
+def get_team_name(team_id):
+
+    with open("league.json", "r") as file:
+        team_json = json.load(file)
+
+    teams = team_json['resultSets'][0]['rowSet']
+
+    for entry in teams:
+        if team_id == entry[2]:
+            team_name = entry[3] + " " + entry[4]
+
+    return team_name

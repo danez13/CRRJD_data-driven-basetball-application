@@ -4,7 +4,7 @@ import nba_api.stats
 import nba_api.stats.static
 import nba_api.stats.static.teams as teams
 from streamlit_option_menu import option_menu
-from helpers import display_detailedPlayer,get_all_players
+from helpers import display_detailedPlayer,get_all_players,get_scoreboard,display_matchups
 import redi_helpers
 import streamlit as st
 import nba_api
@@ -51,7 +51,41 @@ if menu == "Player":
                     roster.dataframe(df,column_config={"Picture":st.column_config.ImageColumn(),"TeamPic":st.column_config.ImageColumn()},hide_index=True,use_container_width=True)
         
 elif menu == "Matches":
-    redi_helpers.todays_matchups()
+    placeholder = st.empty()
+    with placeholder:
+        tab1, tab2, tab3 = placeholder.tabs(['Yesterday', 'Today', 'Tomorrow'])
+        with tab1:
+            yesterday = date.today() - timedelta(days=1)
+            board_json = get_scoreboard(yesterday)
+            day = yesterday
+
+            matchups = board_json['resultSets'][0]['rowSet']
+            if len(matchups) == 0:
+                tab1.warning(f"There were no matchups for Game Day {yesterday}!")
+            else:
+                display_matchups(matchups=matchups, day=yesterday, _container=tab1)
+        with tab2:
+            today = date.today()
+            board_json = get_scoreboard(today)
+
+            day = today
+
+            matchups = board_json['resultSets'][0]['rowSet']
+            if len(matchups) == 0:
+                st.warning(f"There were no matchups for Game Day {today}!")
+            else:
+                display_matchups(matchups=matchups, day=today, _container=tab2)
+        with tab3:
+            tomorrow = date.today() + timedelta(days=1)
+            board_json = get_scoreboard(tomorrow)
+        
+            day = tomorrow
+
+            matchups = board_json['resultSets'][0]['rowSet']
+            if len(matchups) == 0:
+                st.warning(f"There were no matchups for Game Day {tomorrow}!")
+            else:
+                display_matchups(matchups=matchups, day=tomorrow,_container=tab3)
 
 elif menu=="Teams":
     for item in teams.teams:
