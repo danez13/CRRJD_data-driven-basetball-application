@@ -1,10 +1,11 @@
 # NBA Stats
 import nba_api.library
 import nba_api.stats
+import nba_api.stats.endpoints
 import nba_api.stats.static
 import nba_api.stats.static.teams as teams
 from streamlit_option_menu import option_menu
-from helpers import display_detailedPlayer,get_all_players,get_scoreboard,display_matchups
+from helpers import display_detailedPlayer,get_all_players,get_scoreboard,display_matchups,TeamRoster
 import redi_helpers
 import streamlit as st
 import nba_api
@@ -88,8 +89,17 @@ elif menu == "Matches":
                 display_matchups(matchups=matchups, day=tomorrow,_container=tab3)
 
 elif menu=="Teams":
-    for item in teams.teams:
-        st.write(f"{item}")
+    placeholder = st.container()
+    with placeholder:
+        for team in teams.teams:
+            col1,col2=placeholder.columns(2)
+            with col1:
+                col1.image(f"https://cdn.nba.com/logos/nba/{team[0]}/primary/L/logo.svg",width=100)
+            with col2:
+                col2.write(team[5])
+                col2.button("view Details",team[0])
+                # st.write(len(TeamRoster(team[0])))
+            placeholder.divider()
         
 
 elif menu == "Else":
