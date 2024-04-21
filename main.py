@@ -25,9 +25,6 @@ menu = option_menu(
     default_index=0,
     orientation="horizontal"
 )
-def add(search:list):
-    search.append(0)
-    return search
 
 # Start running the program from here
 if menu == "Player":
@@ -45,12 +42,12 @@ if menu == "Player":
                 if filter == "active":
                     roster.empty()
                     df=pd.read_json("activeRoster_file.json")
-                    st.write("active league roster")
+                    roster.write("active league roster")
                     roster.dataframe(df,column_config={"Picture":st.column_config.ImageColumn(),"TeamPic":st.column_config.ImageColumn()},hide_index=True,use_container_width=True)
                 else:
                     roster.empty()
                     df=pd.read_json("allRoster_file.json")
-                    st.write("all time league roster")
+                    roster.write("all time league roster")
                     roster.dataframe(df,column_config={"Picture":st.column_config.ImageColumn(),"TeamPic":st.column_config.ImageColumn()},hide_index=True,use_container_width=True)
         
 elif menu == "Matches":

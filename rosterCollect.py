@@ -61,10 +61,3 @@ for player in players.get_players():
 data={"fullName":fullName,"Picture":Picture,"TeamPic":TeamPic,"Team":Team}
 df = pd.DataFrame(data,index=None)
 df.to_json("allRoster_file.json",index=False)
-import plotly.express as px
-df = px.data.tips()
-fig = px.histogram(df, x="sex", y="total_bill",
-             color='smoker', barmode='group',
-             histfunc='avg',
-             height=400)
-fig.show()
