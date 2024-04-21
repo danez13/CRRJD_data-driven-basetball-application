@@ -29,7 +29,7 @@ st.set_page_config(
 # NAVIGATION MENU
 menu = option_menu(
     menu_title=None,
-    options=["Player","Matches","Teams", "Else"],
+    options=["Player", "Matches", "Teams", "Else"],
     icons=["person-bounding-box", "calendar-event", "list"],
     menu_icon="cast",
     default_index=0,
@@ -106,7 +106,11 @@ elif menu=="Teams":
                 col1.image(f"https://cdn.nba.com/logos/nba/{team[0]}/primary/L/logo.svg",width=100)
             with col2:
                 col2.write(team[5])
-                col2.button("view Details",team[0])
+                view_details = col2.button("View Details",team[0])
+                if view_details:
+                    with open("team_id.txt", "w") as file:
+                        file.write(str(team[0]))
+                    st.switch_page("pages/team_details.py")
                 # st.write(len(TeamRoster(team[0])))
             placeholder.divider()
         
