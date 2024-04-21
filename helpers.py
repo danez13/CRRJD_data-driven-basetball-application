@@ -1,6 +1,6 @@
 import streamlit as st
 from nba_api.stats.static import players, teams
-from nba_api.stats.endpoints import playercareerstats, commonplayerinfo, scoreboardv2, teamdetails, leaguestandings
+from nba_api.stats.endpoints import playercareerstats, commonplayerinfo, scoreboardv2, teamdetails, leaguestandings,CommonTeamRoster
 import requests
 import json
 import redi_helpers
@@ -11,6 +11,9 @@ import plotly.express as px
 from streamlit.delta_generator import DeltaGenerator
 import folium
 from streamlit_folium import folium_static
+################################################################################################################
+################################################################################################################
+################################################################################################################
 headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:82.0) Gecko/20100101 Firefox/82.0' } 
 @st.cache_data(show_spinner=False,experimental_allow_widgets=True)
 def display_detailedPlayer(playerList:list,_container:DeltaGenerator):
@@ -101,6 +104,9 @@ def totalPostSeason(id):
         player_json = json.load(file)
     return player_json["CareerTotalsPostSeason"][0]
 
+################################################################################################################
+################################################################################################################
+################################################################################################################
 @st.cache_data(show_spinner=False)
 def get_scoreboard(gameday):
     score = scoreboardv2.ScoreboardV2(game_date=gameday)
@@ -229,3 +235,19 @@ def get_team_name(team_id):
             team_name = entry[3] + " " + entry[4]
 
     return team_name
+################################################################################################################
+################################################################################################################
+################################################################################################################
+def displayTeamRoster():
+    pass
+def TeamRoster(team_id):
+    player_common_details = CommonTeamRoster(team_id)
+
+    with open("test_file3.json", "w") as file:
+        file.write(player_common_details.get_normalized_json())
+
+    with open("test_file3.json", "r") as file:
+        player_json = json.load(file)
+
+    # player_json = json.load(player_common_details.get_normalized_json())
+    return player_json["CommonTeamRoster"]
