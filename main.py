@@ -116,4 +116,4 @@ elif menu=="Teams":
         
 
 elif menu == "Else":
-    print("hello")
+    st.info("New features will be comming soon!")

@@ -157,14 +157,6 @@ def display_matchups(matchups, day,_container:DeltaGenerator):
             if details:
                 cont2=cont.container()
                 with cont2:
-                    # team_1_details = get_team_details(team_id=entry[6])
-                    # team_2_details = get_team_details(team_id=entry[7])
-                    # team_1_full_name = team_1_name + " (" + team_1_details['resultSets'][0]['rowSet'][0][1] + ")"
-                    # team_2_full_name = team_2_name + " (" + team_2_details['resultSets'][0]['rowSet'][0][1] + ")"
-                    # cont2.subheader(team_1_full_name + " vs. " + team_2_full_name)
-                    # cont2.text(f"Start Time: {entry[4]}")
-                    # cont2.text(f"Stadium Name: {entry[15]}")
-                    # map_creator(entry[15])
                     with open("game_id.txt", "w") as file:
                         file.write(f"{entry[2]}\n")
                         file.write(f"{entry[0][:10]}")
