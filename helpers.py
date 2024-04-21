@@ -40,15 +40,10 @@ def display_detailedPlayer(playerList:list,_container:DeltaGenerator):
             col.write(f"Total Seasons Played: {totalSeasons}")
     totalStats,averageStats = _container.tabs(["total stats", "average stats"])  
     with totalStats:
-        st.write("hello")
         df = pd.DataFrame(regularSeasonTotalStats)
-        newdf=df.drop(columns=["LEAGUE_ID","Team_ID"],axis=1)
-        # newdf["PLAYER_ID"]=playerList
-        # st.write(newdf)
-        # change=newdf.loc[0]
-        # st.write(change.keys())
-        fig=px.histogram(newdf,x=['GP', 'GS', 'MIN', 'FGM', 'FGA', 'FG_PCT', 'FG3M', 'FG3A', 'FG3_PCT', 'FTM', 'FTA', 'FT_PCT', 'OREB', 'DREB', 'REB', 'AST', 'STL', 'BLK', 'TOV', 'PF', 'PTS'],color="PLAYER_ID",barmode="group")
-        totalStats.plotly_chart(fig)
+        newdf=df.drop(columns=["PLAYER_ID","LEAGUE_ID","Team_ID"],axis=1)
+        fig=px.histogram(x=['GP', 'GS', 'MIN', 'FGM', 'FGA', 'FG_PCT', 'FG3M', 'FG3A', 'FG3_PCT', 'FTM', 'FTA', 'FT_PCT', 'OREB', 'DREB', 'REB', 'AST', 'STL', 'BLK', 'TOV', 'PF', 'PTS'],y=newdf.values.tolist(),barmode="group")
+        totalStats.plotly_chart(fig,True)
     with averageStats:
         averageStats.write("goodbye")  
 # get a list of all players
