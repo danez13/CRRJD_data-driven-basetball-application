@@ -1,5 +1,5 @@
 # NBA Stats
-from favicon import Icon
+# from favicon import Icon
 import nba_api.library
 import nba_api.stats
 import nba_api.stats.endpoints
