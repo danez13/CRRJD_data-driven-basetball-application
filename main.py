@@ -1,4 +1,5 @@
 # NBA Stats
+from favicon import Icon
 import nba_api.library
 import nba_api.stats
 import nba_api.stats.static
@@ -15,6 +16,14 @@ from streamlit_folium import folium_static
 import folium
 import pandas as pd
 import json
+from PIL import Image
+
+image = Image.open("nba.jpg")
+st.set_page_config(
+    page_title="NBA Stats And Games", 
+    page_icon=image,
+    initial_sidebar_state="collapsed"
+)
 
 # NAVIGATION MENU
 menu = option_menu(

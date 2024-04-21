@@ -8,7 +8,14 @@ import folium
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objs as go
+from PIL import Image
 
+image = Image.open("nba.jpg")
+st.set_page_config(
+    page_title="NBA Stats And Games", 
+    page_icon=image,
+    initial_sidebar_state="collapsed"
+)
 
 @st.cache_data(show_spinner=False)
 def get_lat_and_long(location: str):
