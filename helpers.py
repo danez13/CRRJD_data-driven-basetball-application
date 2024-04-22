@@ -54,6 +54,25 @@ def display_detailedPlayer(playerList:list,_container:DeltaGenerator):
         newdf=df.drop(columns=["PLAYER_ID","LEAGUE_ID","Team_ID"],axis=1)
         fig=px.histogram(x=['GP', 'GS', 'MIN', 'FGM', 'FGA', 'FG_PCT', 'FG3M', 'FG3A', 'FG3_PCT', 'FTM', 'FTA', 'FT_PCT', 'OREB', 'DREB', 'REB', 'AST', 'STL', 'BLK', 'TOV', 'PF', 'PTS'],y=newdf.values.tolist(),barmode="group")
         totalStats.plotly_chart(fig,True)
+
+        parameters = st.multiselect(
+            "Select the data you want to see.",
+            options=[
+                "Points",
+                "Games Played",
+                "Minutes Played",
+                "Field Goals Made (FGM)",
+                "Field Goals Attempted (FGA)",
+                "Field Goals Percentage (FGP in %)"
+            ]
+        )
+
+        button = st.button("Display Stats")
+        if button:
+            for i, player_stats in enumerate(allTimeStats):
+                st.subheader(f"{playerNames[i]}")
+                redi_helpers.dataframe2(parameters, player_stats)
+
     with averageStats:
         
         tab1, tab2, tab3 = st.tabs(["Points Scored", "Assists Made", "Minutes Played"])

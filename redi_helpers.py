@@ -138,7 +138,7 @@ def dataframe(player_id, df):
             "Points",
             "Games Played",
             "Minutes Played",
-            "Field Gols Made (FGM)",
+            "Field Goals Made (FGM)",
             "Field Goals Attempted (FGA)",
             "Field Goals Percentage (FGP in %)"
         ]
@@ -149,7 +149,9 @@ def dataframe(player_id, df):
         dataFrame = get_custom_dataframe(parameters=parameters, df=df)
         st.dataframe(dataFrame)
         
-
+def dataframe2(parameters, df):
+    dataFrame = get_custom_dataframe(parameters=parameters, df=df)
+    st.dataframe(dataFrame)
 
 # Add the new name of the index in the data frame you want to display here
 
@@ -162,7 +164,7 @@ def match(val):
             return 'GP'
         case 'Minutes Played':
             return 'MIN'
-        case 'Field Gols Made (FGM)':
+        case 'Field Goals Made (FGM)':
             return 'FGM'
         case 'Field Goals Attempted (FGA)':
             return 'FGA'
