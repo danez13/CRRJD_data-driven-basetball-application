@@ -3,6 +3,7 @@ The following python libraries need to be installed to run the program:
 - nba_api
 - streamlit_option_menu
 - json
+- plotly
 - requests
 - streamlit
 - pandas
