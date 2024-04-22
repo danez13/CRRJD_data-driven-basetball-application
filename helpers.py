@@ -27,7 +27,7 @@ def display_detailedPlayer(playerList:list,_container:DeltaGenerator):
     for col,playerName in zip(colums,playerList):
         player=players.find_players_by_full_name(f"{playerName}")[0]
         details = common_player_details(player["id"])
-        totalSeasons=len(availableSeasons())
+        totalSeasons=len(availableSeasons(player["id"]))
         regularSeasonTotalStats.append(totalRegularSeason(player["id"]))
         allTimeStats.append(redi_helpers.get_api_dataframe(player_id=player["id"]))
         playerNames.append(playerName)
@@ -47,77 +47,61 @@ def display_detailedPlayer(playerList:list,_container:DeltaGenerator):
             col.write(f"Jersey: {details["JERSEY"]}")
             col.write(f"Position: {details["POSITION"]}")
             col.write(f"Team: {details["TEAM_CITY"]} {details["TEAM_NAME"]}")
-            col.write(f"Total Seasons Played: {totalSeasons}")
-    totalStats,averageStats = _container.tabs(["Total Stats", "Side By Side Comparison"])  
-    with totalStats:
-        df = pd.DataFrame(regularSeasonTotalStats)
-        newdf=df.drop(columns=["PLAYER_ID","LEAGUE_ID","Team_ID"],axis=1)
-        fig=px.histogram(x=['GP', 'GS', 'MIN', 'FGM', 'FGA', 'FG_PCT', 'FG3M', 'FG3A', 'FG3_PCT', 'FTM', 'FTA', 'FT_PCT', 'OREB', 'DREB', 'REB', 'AST', 'STL', 'BLK', 'TOV', 'PF', 'PTS'],y=newdf.values.tolist(),barmode="group")
-        totalStats.plotly_chart(fig,True)
+            col.write(f"Total Seasons Played: {totalSeasons}")  
+    st.divider()
+    op1,op2,op3,op4,op5,op6=st.columns([0.8,0.85,0.85,0.8,1,1])
+    with op1:
+        opt1 = op1.checkbox("Points")
+    with op2:
+        opt2 = op2.checkbox("Games Played")
+    with op3:
+        opt3 = op3.checkbox("Minutes Played")
+    with op4:
+        opt4 = op4.checkbox("Field Goals Made (FGM)")
+    with op5:
+        opt5 = op5.checkbox("Field Goals Attempted (FGA)")
+    with op6:
+        opt6 = op6.checkbox("Field Goals Percentage (FGP in %)")
+    parameters = [opt1, opt2, opt3, opt4, opt5, opt6]
 
-        opt1 = st.checkbox("Points")
-        opt2 = st.checkbox("Games Played")
-        opt3 = st.checkbox("Minutes Played")
-        opt4 = st.checkbox("Field Goals Made (FGM)")
-        opt5 = st.checkbox("Field Goals Attempted (FGA)")
-        opt6 = st.checkbox("Field Goals Percentage (FGP in %)")
+    button = st.button("Display Stats")
+    if button:
+        for i, player_stats in enumerate(allTimeStats):
+            st.subheader(f"{playerNames[i]}")
+            redi_helpers.dataframe2(parameters, player_stats)
+    tab1, tab2, tab3 = st.tabs(["Points Scored", "Assists Made", "Minutes Played"])
+    with tab1:
+        traces = []
 
-        parameters = [opt1, opt2, opt3, opt4, opt5, opt6]
-        # parameters = st.multiselect(
-        #     "Select the data you want to see.",
-        #     options=[
-        #         "Points",
-        #         "Games Played",
-        #         "Minutes Played",
-        #         "Field Goals Made (FGM)",
-        #         "Field Goals Attempted (FGA)",
-        #         "Field Goals Percentage (FGP in %)"
-        #     ]
-        # )
+        for i, entry in enumerate(allTimeStats):
+            traces.append(go.Line(y=entry['PTS'], name=playerNames[i]))
 
-        button = st.button("Display Stats")
-        if button:
-            for i, player_stats in enumerate(allTimeStats):
-                st.subheader(f"{playerNames[i]}")
-                redi_helpers.dataframe2(parameters, player_stats)
+        fig = go.Figure(traces)
+        fig.update_layout(barmode='group', xaxis_title='Season Index', yaxis_title='Points', title='Points per Season')
 
-    with averageStats:
-        
-        tab1, tab2, tab3 = st.tabs(["Points Scored", "Assists Made", "Minutes Played"])
-        # st.line_chart(df, y=['PTS', 'MIN'])
-        
-        with tab1:
-            traces = []
+        st.plotly_chart(fig,True)
+    
+    with tab2:
+        traces = []
 
-            for i, entry in enumerate(allTimeStats):
-                traces.append(go.Line(y=entry['PTS'], name=playerNames[i]))
+        for i, entry in enumerate(allTimeStats):
+            traces.append(go.Line(y=entry['AST'], name=playerNames[i]))
 
-            fig = go.Figure(traces)
-            fig.update_layout(barmode='group', xaxis_title='Season Index', yaxis_title='Points', title='Points per Season')
+        fig = go.Figure(traces)
+        fig.update_layout(barmode='group', xaxis_title='Season Index', yaxis_title='Asists', title='Asists per Season')
 
-            st.plotly_chart(fig)
-        
-        with tab2:
-            traces = []
+        st.plotly_chart(fig,True)
 
-            for i, entry in enumerate(allTimeStats):
-                traces.append(go.Line(y=entry['AST'], name=playerNames[i]))
+    with tab3:
+        traces = []
 
-            fig = go.Figure(traces)
-            fig.update_layout(barmode='group', xaxis_title='Season Index', yaxis_title='Asists', title='Asists per Season')
+        for i, entry in enumerate(allTimeStats):
+            traces.append(go.Line(y=entry['MIN'], name=playerNames[i]))
 
-            st.plotly_chart(fig)
+        fig = go.Figure(traces)
+        fig.update_layout(barmode='group', xaxis_title='Season Index', yaxis_title='Minutes', title='Minutes per Season')
 
-        with tab3:
-            traces = []
-
-            for i, entry in enumerate(allTimeStats):
-                traces.append(go.Line(y=entry['MIN'], name=playerNames[i]))
-
-            fig = go.Figure(traces)
-            fig.update_layout(barmode='group', xaxis_title='Season Index', yaxis_title='Minutes', title='Minutes per Season')
-
-            st.plotly_chart(fig)
+        st.plotly_chart(fig,True)
 
 
 # get a list of all players
@@ -147,7 +131,11 @@ def common_player_details(player_id):
 
 # get number of seasons an athlete played
 @st.cache_resource(show_spinner=False,experimental_allow_widgets=True)
-def availableSeasons():
+def availableSeasons(id):
+    player_common_details = commonplayerinfo.CommonPlayerInfo(player_id=id)
+
+    with open("test_file.json", "w") as file:
+        file.write(player_common_details.get_normalized_json())
     with open("test_file.json", "r") as file:
         player_json = json.load(file)
 

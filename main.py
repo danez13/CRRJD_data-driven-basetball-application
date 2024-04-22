@@ -43,7 +43,7 @@ if menu == "Player":
         textSearch=[]
         textSearch = playerContainer.multiselect("get detailed player info:",get_all_players())
         filter = playerContainer.radio("filters",options=["active","all-time"],horizontal=True)
-        roster = playerContainer.container(border=True)
+        roster = playerContainer.container()
         with roster:
             if len(textSearch)!=0:
                 roster.empty()
