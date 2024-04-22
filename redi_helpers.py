@@ -150,7 +150,20 @@ def dataframe(player_id, df):
         st.dataframe(dataFrame)
         
 def dataframe2(parameters, df):
-    dataFrame = get_custom_dataframe(parameters=parameters, df=df)
+    temp_list = []
+    options = [
+        "Points",
+        "Games Played",
+        "Minutes Played",
+        "Field Goals Made (FGM)",
+        "Field Goals Attempted (FGA)",
+        "Field Goals Percentage (FGP in %)"
+    ]
+
+    for i, element in enumerate(parameters):
+        if element:
+            temp_list.append(options[i])
+    dataFrame = get_custom_dataframe(parameters=temp_list, df=df)
     st.dataframe(dataFrame)
 
 # Add the new name of the index in the data frame you want to display here
