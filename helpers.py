@@ -16,7 +16,7 @@ import plotly.graph_objs as go
 ################################################################################################################
 ################################################################################################################
 headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:82.0) Gecko/20100101 Firefox/82.0' } 
-@st.cache_data(show_spinner=False,experimental_allow_widgets=True)
+
 def display_detailedPlayer(playerList:list,_container:DeltaGenerator):
     regularSeasonTotalStats=[]
     colums = []
