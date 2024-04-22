@@ -10,7 +10,8 @@ import pandas as pd
 import plotly.express as px
 from streamlit.delta_generator import DeltaGenerator
 import folium
-from streamlit_folium import folium_static
+from streamlit_folium import folium_static#
+import plotly.graph_objs as go
 ################################################################################################################
 ################################################################################################################
 ################################################################################################################
@@ -19,6 +20,8 @@ headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:82.0) Ge
 def display_detailedPlayer(playerList:list,_container:DeltaGenerator):
     regularSeasonTotalStats=[]
     colums = []
+    playerNames = []
+    allTimeStats = []
     postSeasonTotalStats = []
     colums.extend(_container.columns(len(playerList)))
     for col,playerName in zip(colums,playerList):
@@ -26,6 +29,8 @@ def display_detailedPlayer(playerList:list,_container:DeltaGenerator):
         details = common_player_details(player["id"])
         totalSeasons=len(availableSeasons())
         regularSeasonTotalStats.append(totalRegularSeason(player["id"]))
+        allTimeStats.append(redi_helpers.get_api_dataframe(player_id=player["id"]))
+        playerNames.append(playerName)
         postSeasonTotalStats.append(totalPostSeason(player["id"]))
         with col:
             player_link = f'https://cdn.nba.com/headshots/nba/latest/1040x760/{player["id"]}.png'
@@ -43,14 +48,50 @@ def display_detailedPlayer(playerList:list,_container:DeltaGenerator):
             col.write(f"Position: {details["POSITION"]}")
             col.write(f"Team: {details["TEAM_CITY"]} {details["TEAM_NAME"]}")
             col.write(f"Total Seasons Played: {totalSeasons}")
-    totalStats,averageStats = _container.tabs(["total stats", "average stats"])  
+    totalStats,averageStats = _container.tabs(["Total Stats", "Side By Side Comparison"])  
     with totalStats:
         df = pd.DataFrame(regularSeasonTotalStats)
         newdf=df.drop(columns=["PLAYER_ID","LEAGUE_ID","Team_ID"],axis=1)
         fig=px.histogram(x=['GP', 'GS', 'MIN', 'FGM', 'FGA', 'FG_PCT', 'FG3M', 'FG3A', 'FG3_PCT', 'FTM', 'FTA', 'FT_PCT', 'OREB', 'DREB', 'REB', 'AST', 'STL', 'BLK', 'TOV', 'PF', 'PTS'],y=newdf.values.tolist(),barmode="group")
         totalStats.plotly_chart(fig,True)
     with averageStats:
-        averageStats.write("goodbye")
+        
+        tab1, tab2, tab3 = st.tabs(["Points Scored", "Assists Made", "Minutes Played"])
+        # st.line_chart(df, y=['PTS', 'MIN'])
+        
+        with tab1:
+            traces = []
+
+            for i, entry in enumerate(allTimeStats):
+                traces.append(go.Line(y=entry['PTS'], name=playerNames[i]))
+
+            fig = go.Figure(traces)
+            fig.update_layout(barmode='group', xaxis_title='Season Index', yaxis_title='Points', title='Points per Season')
+
+            st.plotly_chart(fig)
+        
+        with tab2:
+            traces = []
+
+            for i, entry in enumerate(allTimeStats):
+                traces.append(go.Line(y=entry['AST'], name=playerNames[i]))
+
+            fig = go.Figure(traces)
+            fig.update_layout(barmode='group', xaxis_title='Season Index', yaxis_title='Asists', title='Asists per Season')
+
+            st.plotly_chart(fig)
+
+        with tab3:
+            traces = []
+
+            for i, entry in enumerate(allTimeStats):
+                traces.append(go.Line(y=entry['MIN'], name=playerNames[i]))
+
+            fig = go.Figure(traces)
+            fig.update_layout(barmode='group', xaxis_title='Season Index', yaxis_title='Minutes', title='Minutes per Season')
+
+            st.plotly_chart(fig)
+
 
 # get a list of all players
 @st.cache_data(show_spinner=False)
