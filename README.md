@@ -6,7 +6,7 @@
   pip install -r requirements.txt
   ```
 ## Link to a running website
-**[Link](https://danez13-crrjd-data-driven-basetball-application-main-guwczn.streamlit.app/)
+[Link](https://danez13-crrjd-data-driven-basetball-application-main-guwczn.streamlit.app/)
 ## Introduction and Motivation
 A web application is an interactive computer program developed using web technologies (HTML, CSS, JS), which stores (Database, Files) and manipulates data (CRUD - create, read, update and delete). Webapps can be used by a team or single user to perform tasks over the internet.
 
