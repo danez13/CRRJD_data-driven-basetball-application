@@ -42,7 +42,7 @@ def display_detailedPlayer(playerList:list,_container:DeltaGenerator):
             st.write()
             col.write(details["DISPLAY_FIRST_LAST"])
             col.write(f"Country: {details['COUNTRY']}")
-            col.write(f"Height: {details['HEIGHT'].replace('-',"\'")}")
+            col.write(f"Height: {details['HEIGHT'].replace('-','\'')}")
             col.write(f"Weight: {details['WEIGHT']}")
             col.write(f"Jersey: {details['JERSEY']}")
             col.write(f"Position: {details['POSITION']}")
