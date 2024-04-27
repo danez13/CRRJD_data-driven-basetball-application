@@ -39,10 +39,11 @@ def display_detailedPlayer(playerList:list,_container:DeltaGenerator):
                 col.image("placeholder.png",width=180)
             else:
                 col.image(player_link,width = 180)
+            details["HEIGHT"].replace("-","\'")
             st.write()
             col.write(details["DISPLAY_FIRST_LAST"])
             col.write(f"Country: {details['COUNTRY']}")
-            col.write(f"Height: {details['HEIGHT'].replace('-',"'")}")
+            col.write(f"Height: {details["HEIGHT"]}")
             col.write(f"Weight: {details['WEIGHT']}")
             col.write(f"Jersey: {details['JERSEY']}")
             col.write(f"Position: {details['POSITION']}")
