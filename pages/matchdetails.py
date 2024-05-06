@@ -279,7 +279,7 @@ else:
         st.image(image_link, width=50)
 
     st.caption(f"Start Time: {start_time}")
-    st.caption(f"Stadium Place: {stadium_name}, {get_city_name(val = 1, team_id=home_team_id, match_details="")}")
+    st.caption(f"Stadium Place: {stadium_name}, {get_city_name(val = 1, team_id=home_team_id, match_details='')}")
 
     display_map = st.button("Display Map")
 
