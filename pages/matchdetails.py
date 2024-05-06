@@ -127,7 +127,7 @@ if state:
     col1, col2, col3 = st.columns([1, 5, 1])
 
     with col1:
-        image_link = f'https://cdn.nba.com/logos/nba/{match_details['game']['homeTeam']['teamId']}/primary/L/logo.svg'
+        image_link = f"https://cdn.nba.com/logos/nba/{match_details['game']['homeTeam']['teamId']}/primary/L/logo.svg"
         st.image(image_link, width=50)
 
     with col2:
