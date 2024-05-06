@@ -284,7 +284,7 @@ else:
     display_map = st.button("Display Map")
 
     if display_map:
-        map_creator(f"{stadium_name} {get_city_name(val = 1, team_id=home_team_id, match_details="")}")
+        map_creator(f"{stadium_name} {get_city_name(val = 1, team_id=home_team_id, match_details='')}")
         
     _, col = st.columns([7, 1])
 
