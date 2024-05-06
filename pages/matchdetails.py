@@ -134,7 +134,7 @@ if state:
         st.subheader(f'{get_home_team_name(match_details=match_details)} vs. {get_away_team_name(match_details=match_details)}')
 
     with col3:
-        image_link = f'https://cdn.nba.com/logos/nba/{match_details['game']['awayTeam']['teamId']}/primary/L/logo.svg'
+        image_link = f"https://cdn.nba.com/logos/nba/{match_details['game']['awayTeam']['teamId']}/primary/L/logo.svg"
         st.image(image_link, width=50) 
 
     st.markdown("""---""")
