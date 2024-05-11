@@ -29,4 +29,4 @@ toolbarMode = "auto"
 # Controls whether the default sidebar page navigation in a multipage app is
 # displayed.
 # Default: true
-showSidebarNavigation = true
+showSidebarNavigation = false
